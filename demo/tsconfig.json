@@ -9,7 +9,10 @@
     "removeComments": true,
     "noImplicitAny": true,
     "sourceMap": true,
-    "noEmitOnError": true
+    "noEmitOnError": true,
+    "typeRoots": [
+      "../node_modules/@types"
+    ]
   },
   "exclude": [
     "node_modules",

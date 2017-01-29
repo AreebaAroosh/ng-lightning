@@ -1,3 +1,7 @@
+const fs = require('fs');
+const gracefulFs = require('graceful-fs');
+gracefulFs.gracefulify(fs); // Fix copy-webpack-plugin: EMFILE: too many open files
+
 const webpack = require('webpack');
 const path = require('path');
 const dateFormat = require('dateformat');
@@ -95,7 +99,7 @@ const config = {
 if (isProduction) {
   config.plugins.push(
     // Only emit files when there are no errors
-    new webpack.NoErrorsPlugin(),
+    new webpack.NoEmitOnErrorsPlugin(),
 
     // Minify all javascript, switch loaders to minimizing mode
     new webpack.optimize.UglifyJsPlugin()
